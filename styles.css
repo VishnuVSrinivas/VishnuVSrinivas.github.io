@@ -23,8 +23,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
-  scroll-behavior: smooth;
-  scroll-padding-top: 24px;
 }
 
 body { margin: 0; background: var(--bg); color: var(--fg); }
@@ -51,12 +49,13 @@ a:hover { text-decoration-color: currentColor; }
 }
 main { flex: 1; }
 
+/* Header (inner pages) */
 .top {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 24px;
-  margin-bottom: 8px;
+  margin-bottom: 104px;
   font-size: 17px;
 }
 .top a { text-decoration: none; }
@@ -64,9 +63,10 @@ main { flex: 1; }
 .top nav { display: flex; gap: 24px; }
 .top nav a { color: var(--muted); }
 .top nav a:hover,
-.top nav a[aria-current="true"] { color: var(--fg); }
+.top nav a[aria-current] { color: var(--fg); }
 
-.hero { padding-top: 10vh; padding-bottom: 8px; }
+/* Home */
+.home { padding-top: 10vh; }
 .name {
   margin: 0 0 20px;
   font-size: 44px;
@@ -79,10 +79,25 @@ main { flex: 1; }
 .intro p:last-child,
 .prose p:last-child { margin-bottom: 0; }
 
-.block { padding-top: 88px; }
-.block .title {
-  margin: 0 0 36px;
-  font-size: 32px;
+.pages { margin: 48px 0 0; }
+.pages a {
+  display: flex;
+  align-items: baseline;
+  padding: 16px 0;
+  text-decoration: none;
+}
+.page { font-size: 22px; }
+.pages a:hover .page {
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+/* Inner page titles and lists */
+.title {
+  margin: 0 0 56px;
+  font-size: 44px;
   line-height: 1.1;
   font-weight: 400;
   letter-spacing: -0.02em;
@@ -90,22 +105,21 @@ main { flex: 1; }
 }
 
 .entry { margin: 0 0 44px; }
-.entry:last-child { margin-bottom: 0; }
 .entry-head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 20px;
 }
-.entry h3 {
+.entry h2 {
   margin: 0;
   font-size: 21px;
   line-height: 1.35;
   font-weight: 500;
   letter-spacing: -0.005em;
 }
-.entry h3 a { text-decoration: none; }
-.entry h3 a:hover { text-decoration: underline; text-decoration-color: currentColor; }
+.entry h2 a { text-decoration: none; }
+.entry h2 a:hover { text-decoration: underline; text-decoration-color: currentColor; }
 .when {
   flex: none;
   color: var(--faint);
@@ -116,6 +130,7 @@ main { flex: 1; }
 .desc { margin: 10px 0 0; text-wrap: pretty; }
 .links { display: flex; gap: 18px; margin: 8px 0 0; font-size: 16px; color: var(--muted); }
 
+/* Footer */
 .foot {
   display: flex;
   justify-content: space-between;
@@ -134,19 +149,18 @@ main { flex: 1; }
 @media (max-width: 600px) {
   html { font-size: 17px; }
   .wrap { padding: 24px 20px 32px; }
-  .top { font-size: 16px; flex-wrap: wrap; row-gap: 8px; }
+  .top { margin-bottom: 72px; font-size: 16px; flex-wrap: wrap; row-gap: 10px; }
   .top nav { gap: 16px; }
-  .hero { padding-top: 6vh; }
-  .name { font-size: 34px; }
-  .block { padding-top: 72px; }
-  .block .title { font-size: 28px; }
+  .home { padding-top: 6vh; }
+  .name, .title { font-size: 34px; }
+  .pages { margin-top: 36px; }
+  .page { font-size: 20px; }
   .entry-head { flex-wrap: wrap; row-gap: 0; }
   .tag { display: block; margin: 0; font-size: 16px; }
-  .entry h3 { font-size: 19px; }
+  .entry h2 { font-size: 19px; }
   .foot { flex-direction: column; gap: 8px; margin-top: 72px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
   a { transition: none; }
 }
