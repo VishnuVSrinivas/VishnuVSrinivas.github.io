@@ -130,6 +130,8 @@ main { flex: 1; }
   font-variant-numeric: tabular-nums;
 }
 .tag { margin-left: 4px; color: var(--muted); font-size: 17px; font-weight: 400; letter-spacing: 0; }
+.authors { margin: 6px 0 0; color: var(--muted); font-size: 16px; }
+.authors strong { font-weight: 500; color: var(--fg); }
 .desc { margin: 10px 0 0; text-wrap: pretty; }
 .links { display: flex; gap: 18px; margin: 8px 0 0; font-size: 16px; color: var(--muted); }
 
@@ -167,3 +169,4 @@ main { flex: 1; }
 @media (prefers-reduced-motion: reduce) {
   a { transition: none; }
 }
+.authors .note { color: var(--faint); font-size: 14px; }
